@@ -58,15 +58,19 @@ void calculateForSurface(float cubeX, float cubeY, float cubeZ, int ch) {
 
 int main() {
     // --- WINDOWS TERMINAL FIX ---
-#ifdef _WIN32
-    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    DWORD dwMode = 0;
-    GetConsoleMode(hOut, &dwMode);
-    SetConsoleMode(hOut, dwMode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
-#endif
-    // ----------------------------
+// 1. Keep the Windows setup at the top of main()
+    #ifdef _WIN32
+        HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+        DWORD dwMode = 0;
+        GetConsoleMode(hOut, &dwMode);
+        SetConsoleMode(hOut, dwMode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+    #endif
 
-    system("cls"); // Clear screen
+    // 2. Inside the while(1) loop, use this instead of cls:
+    printf("\x1b[H"); 
+
+    // 3. Keep a small usleep to keep it stable
+    usleep(10000);
     while (1) {
         memset(buffer, backgroundASCIICode, width * height);
         memset(zBuffer, 0, sizeof(zBuffer)); // Fixed: using sizeof
