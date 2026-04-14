@@ -72,6 +72,7 @@ CMakeFiles/rotate.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/corecrt_startup.h \
  C:/msys64/ucrt64/include/sys/types.h C:/msys64/ucrt64/include/getopt.h \
  C:/msys64/ucrt64/include/pthread_unistd.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
  C:/msys64/ucrt64/include/windows.h C:/msys64/ucrt64/include/sdkddkver.h \
  C:/msys64/ucrt64/include/excpt.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
@@ -282,7 +283,6 @@ CMakeFiles/rotate.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/rpcnsip.h C:/msys64/ucrt64/include/rpcsal.h \
  C:/msys64/ucrt64/include/ole2.h C:/msys64/ucrt64/include/objbase.h \
  C:/msys64/ucrt64/include/combaseapi.h \
- C:/msys64/ucrt64/include/c++/15.2.0/cstdlib \
  C:/msys64/ucrt64/include/wtypesbase.h \
  C:/msys64/ucrt64/include/unknwnbase.h \
  C:/msys64/ucrt64/include/objidlbase.h C:/msys64/ucrt64/include/cguid.h \

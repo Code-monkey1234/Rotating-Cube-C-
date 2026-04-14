@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <cstring>
 #include <unistd.h>
+#include <stdlib.h> // For system()
 
 #ifdef _WIN32
 #include <windows.h>
@@ -65,7 +66,7 @@ int main() {
 #endif
     // ----------------------------
 
-    printf("\x1b[2J"); // Clear screen
+    system("cls"); // Clear screen
     while (1) {
         memset(buffer, backgroundASCIICode, width * height);
         memset(zBuffer, 0, sizeof(zBuffer)); // Fixed: using sizeof
@@ -89,7 +90,6 @@ int main() {
         
         A += 0.05;
         B += 0.05;
-        usleep(16000); // Small delay (~60fps)
     }
 
     return 0;
