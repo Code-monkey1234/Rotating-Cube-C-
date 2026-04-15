@@ -73,7 +73,7 @@ int main() {
                 calculateForSurface(-cubeWidth, cubeY, -cubeX, '~');
                 calculateForSurface(-cubeX, cubeY, cubeWidth, '#');
                 calculateForSurface(cubeX, -cubeWidth, cubeY, ';');
-                calculateForSurface(cubeX, cubeWidth, cubeY, '+');
+                calculateForSurface(cubeX, cubeWidth, cubeY, '.');
             }
         }
 
@@ -86,10 +86,10 @@ int main() {
         fwrite(outputBuffer, 1, outIdx, stdout);
         fflush(stdout);
 
-        A += 0.03; // smoother rotation
-        B += 0.03;
+        A += 0.007; // smoother rotation
+        B += 0.007;
 
-        usleep(16000); // ~60fps cap
+        usleep(6000); // ~60fps cap
     }
 
     // restore cursor if ever exits
