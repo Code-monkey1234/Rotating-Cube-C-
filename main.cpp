@@ -8,10 +8,10 @@
 #endif
 
 float A, B;
-float cubeWidth = 10;
+float cubeWidth = 20;
 float K1 = 40;
 int width = 160, height = 44;
-int distanceFromCam = 60;
+int distanceFromCam = 100;
 
 float zBuffer[160 * 44];
 char buffer[160 * 44];
@@ -39,7 +39,7 @@ void calculateForSurface(float cubeX, float cubeY, float cubeZ, int ch) {
     float z = calculateZ(cubeX, cubeY, cubeZ) + distanceFromCam;
 
     float ooz = 1 / z;
-    int xp = (int)(width / 2 + K1 * ooz * x * 2);
+    int xp = (int)(width / 2 - cubeWidth * K1 * ooz * x * 2);
     int yp = (int)(height / 2 + K1 * ooz * y * 2);
 
     int idx = xp + yp * width;
@@ -68,12 +68,12 @@ int main() {
 
         for (float cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) {
             for (float cubeY = -cubeWidth; cubeY < cubeWidth; cubeY += incrementSpeed) {
-                calculateForSurface(cubeX, cubeY, -cubeWidth, '@');
+                calculateForSurface(cubeX, cubeY, -cubeWidth, '.');
                 calculateForSurface(cubeWidth, cubeY, cubeX, '$');
                 calculateForSurface(-cubeWidth, cubeY, -cubeX, '~');
                 calculateForSurface(-cubeX, cubeY, cubeWidth, '#');
                 calculateForSurface(cubeX, -cubeWidth, cubeY, ';');
-                calculateForSurface(cubeX, cubeWidth, cubeY, '.');
+                calculateForSurface(cubeX, cubeWidth, cubeY, '+');
             }
         }
 
